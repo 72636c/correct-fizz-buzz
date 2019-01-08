@@ -1,6 +1,8 @@
 module Main where
 
-import Lib
+import           System.Environment             ( getArgs )
+
+import           Lib                            ( fizzBuzz )
 
 main :: IO ()
-main = someFunc
+main = getArgs >>= fizzBuzz
