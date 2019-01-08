@@ -1,5 +1,6 @@
 module Lib
   ( fizzBuzz
+  , generateResults
   )
 where
 
@@ -9,16 +10,16 @@ import           GHC.Natural                    ( Natural )
 import           Text.Read                      ( readMaybe )
 
 fizzBuzz :: Arguments -> IO ()
-fizzBuzz = getCount >>> toResults >>> mapM_ putStrLn
+fizzBuzz = getCount >>> generateResults >>> mapM_ putStrLn
 
-toResults :: Natural -> [Result]
-toResults count = toResult <$> [1 .. count]
+generateResults :: Natural -> [Result]
+generateResults count = toResult <$> [1 .. count]
 
 toResult :: Natural -> Result
-toResult nat | nat `multipleOf` 3 && nat `multipleOf` 5 = "FizzBuzz"
-             | nat `multipleOf` 3 = "Fizz"
-             | nat `multipleOf` 5 = "Buzz"
-             | otherwise          = show nat
+toResult num | num `multipleOf` 3 && num `multipleOf` 5 = "FizzBuzz"
+             | num `multipleOf` 3 = "Fizz"
+             | num `multipleOf` 5 = "Buzz"
+             | otherwise          = show num
 
 defaultCount :: Natural
 defaultCount = 100
@@ -27,7 +28,7 @@ getCount :: Arguments -> Natural
 getCount [arg] = fromMaybe defaultCount (readMaybe arg :: Maybe Natural)
 getCount _     = defaultCount
 
-multipleOf :: Natural -> Natural -> Bool
+multipleOf :: Integral a => a -> a -> Bool
 multipleOf x y = x `mod` y == 0
 
 type Arguments = [String]
