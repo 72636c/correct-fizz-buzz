@@ -1,0 +1,21 @@
+kind: pipeline
+name: default
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+  - name: build + test
+    image: haskell:8.6.3
+    commands:
+      - stack build
+      - stack test
+      - stack exec correct-fizz-buzz-exe 0
+      - stack exec correct-fizz-buzz-exe 1
+      - stack exec correct-fizz-buzz-exe 5
+    when:
+      event:
+        exclude:
+          - pull_request
+          - tag
