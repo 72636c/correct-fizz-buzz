@@ -19,7 +19,8 @@ extra-source-files:
 description:         Please see the README on GitHub at <https://github.com/72636c/correct-fizz-buzz#readme>
 
 dependencies:
-- base >= 4.7 && < 5
+- base >= 4.12 && < 5
+- lens >= 4.17 && < 5
 
 library:
   source-dirs: src

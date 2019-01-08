@@ -3,6 +3,10 @@ module Lib
   )
 where
 
+import           Control.Arrow                  ( (>>>) )
+import           Control.Lens.Operators         ( (&)
+                                                , (<&>)
+                                                )
 import           Data.Maybe                     ( fromMaybe
                                                 , listToMaybe
                                                 )
@@ -16,10 +20,10 @@ instance LinePrinter IO
   where printLine = putStrLn
 
 fizzBuzz :: LinePrinter m => Arguments -> m ()
-fizzBuzz = mapM_ printLine . generateResults . readCount
+fizzBuzz = readCount >>> generateResults >>> mapM_ printLine
 
 generateResults :: Natural -> [Result]
-generateResults count = toResult <$> [1 .. count]
+generateResults count = [1 .. count] <&> toResult
 
 toResult :: Natural -> Result
 toResult num | num `multipleOf` 3 && num `multipleOf` 5 = "FizzBuzz"
@@ -31,7 +35,7 @@ defaultCount :: Natural
 defaultCount = 100
 
 readCount :: Arguments -> Natural
-readCount args = fromMaybe defaultCount $ readMaybe =<< listToMaybe args
+readCount args = listToMaybe args >>= readMaybe & fromMaybe defaultCount
 
 multipleOf :: Integral a => a -> a -> Bool
 multipleOf x y = x `mod` y == 0
