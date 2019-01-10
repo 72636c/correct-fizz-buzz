@@ -2,7 +2,7 @@ module Main where
 
 import           System.Environment             ( getArgs )
 
-import           Lib                            ( fizzBuzz )
+import           FizzBuzz                       ( fizzBuzz )
 import           LinePrinter.IO
 
 main :: IO ()
