@@ -1,3 +1,4 @@
+---
 kind: pipeline
 name: default
 
@@ -16,3 +17,7 @@ steps:
         exclude:
           - pull_request
           - tag
+
+---
+kind: signature
+hmac: b56a08fb5078e39dc740ab912c5ac98de9869049bde0a19b3b677bfe3eb264c6
