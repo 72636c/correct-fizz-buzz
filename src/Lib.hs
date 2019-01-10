@@ -13,11 +13,9 @@ import           Data.Maybe                     ( fromMaybe
 import           GHC.Natural                    ( Natural )
 import           Text.Read                      ( readMaybe )
 
-class Monad m => LinePrinter m
-  where printLine :: String -> m ()
-
-instance LinePrinter IO
-  where printLine = putStrLn
+import           LinePrinter                    ( LinePrinter
+                                                , printLine
+                                                )
 
 fizzBuzz :: LinePrinter m => Arguments -> m ()
 fizzBuzz = readCount >>> generateResults >>> mapM_ printLine

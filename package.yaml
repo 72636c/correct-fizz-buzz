@@ -21,6 +21,7 @@ description:         Please see the README on GitHub at <https://github.com/7263
 dependencies:
 - base >= 4.12 && < 5
 - lens >= 4.17 && < 5
+- mtl >= 2.2.2 && < 3
 
 library:
   source-dirs: src
@@ -46,3 +47,4 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - correct-fizz-buzz
+    - hspec >= 2.6.1 && < 3
