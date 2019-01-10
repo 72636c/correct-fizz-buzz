@@ -1,50 +1,43 @@
-name:                correct-fizz-buzz
-version:             0.1.0.0
-github:              "72636c/correct-fizz-buzz"
-license:             BSD3
-author:              "Ryan Ling"
-maintainer:          "ryan@outlook.com.au"
-copyright:           "2019 Ryan Ling"
+name: correct-fizz-buzz
+version: 0.1.0.0
+github: 72636c/correct-fizz-buzz
+license: BSD3
+author: Ryan Ling
+maintainer: ryan@outlook.com.au
+copyright: 2019 Ryan Ling
 
 extra-source-files:
-- README.md
+  - README.md
 
-# Metadata used when publishing your package
-# synopsis:            Short description of your package
-# category:            Web
-
-# To avoid duplicated efforts in documentation and dealing with the
-# complications of embedding Haddock markup inside cabal files, it is
-# common to point users to the README.md file.
-description:         Please see the README on GitHub at <https://github.com/72636c/correct-fizz-buzz#readme>
+description: Please see the README on GitHub at <https://github.com/72636c/correct-fizz-buzz#readme>
 
 dependencies:
-- base >= 4.12 && < 5
-- lens >= 4.17 && < 5
-- mtl >= 2.2.2 && < 3
+  - base >= 4.12 && < 5
+  - lens >= 4.17 && < 5
+  - mtl >= 2.2.2 && < 3
 
 library:
   source-dirs: src
 
 executables:
   correct-fizz-buzz-exe:
-    main:                Main.hs
-    source-dirs:         app
+    main: Main.hs
+    source-dirs: app
     ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
     dependencies:
-    - correct-fizz-buzz
+      - correct-fizz-buzz
 
 tests:
   correct-fizz-buzz-test:
-    main:                Spec.hs
-    source-dirs:         test
+    main: Spec.hs
+    source-dirs: test
     ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
     dependencies:
-    - correct-fizz-buzz
-    - hspec >= 2.6.1 && < 3
+      - correct-fizz-buzz
+      - hspec >= 2.6.1 && < 3
