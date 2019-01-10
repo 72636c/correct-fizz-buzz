@@ -9,7 +9,7 @@ steps:
   - name: build + test + exec
     image: haskell:8.6.3
     commands:
-      - stack test
+      - stack test --fast
       - stack exec correct-fizz-buzz-exe
     when:
       event:
