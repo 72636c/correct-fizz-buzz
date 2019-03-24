@@ -14,10 +14,8 @@ steps:
       - stack exec correct-fizz-buzz-exe
     when:
       event:
-        exclude:
-          - pull_request
-          - tag
+        - pull_request
 
 ---
 kind: signature
-hmac: b56a08fb5078e39dc740ab912c5ac98de9869049bde0a19b3b677bfe3eb264c6
+hmac: 33b0af49ba881f509e01bbd9e2a1b09b2ae468088063695fdca846fb2a455b30
