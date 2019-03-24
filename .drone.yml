@@ -15,8 +15,7 @@ steps:
     when:
       event:
         - pull_request
-        - push
 
 ---
 kind: signature
-hmac: e4c0d2c9531a3d75147319b7cba2b713d0eba6553cbd4182e801499dba09b4eb
+hmac: 33b0af49ba881f509e01bbd9e2a1b09b2ae468088063695fdca846fb2a455b30
