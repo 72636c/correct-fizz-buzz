@@ -1,5 +1,6 @@
 ---
 kind: pipeline
+type: docker
 name: default
 
 platform:
@@ -18,4 +19,4 @@ steps:
 
 ---
 kind: signature
-hmac: 33b0af49ba881f509e01bbd9e2a1b09b2ae468088063695fdca846fb2a455b30
+hmac: 87dbd1000f3adada582a279347239eb731d92042118853da0e10633b4be81b9f
